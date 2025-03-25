@@ -7,6 +7,8 @@ int main(){
     cout<<"Enter a number : ";
     cin>>num;
 
+    // cout<<int(num);
+
     int int_partof_num = int(num);
     if (int_partof_num<0) int_partof_num -=1;
 
