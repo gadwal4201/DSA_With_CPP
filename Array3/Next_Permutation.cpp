@@ -3,7 +3,8 @@
 using namespace std;
 #include<algorithm>
 
-void input(int s1, vector<int> &arr){
+void input(vector<int> &arr){
+    int s1;
     cout<<"Enter array size : ";
     
     cin>>s1;
@@ -70,8 +71,8 @@ void nextPermutation(vector<int> &nums){
 
 int main(){
     vector<int> v;
-    int s;
-    input(s,v);
+    
+    input(v);
 
     display(v);
     nextPermutation(v);

@@ -4,7 +4,8 @@ using namespace std;
 #include<algorithm>
 // #include<math.h>
 
-void input(int s1, vector<int> &arr){
+void input(vector<int> &arr){
+    int s1;
     cout<<"Enter array size : ";
     
     cin>>s1;
@@ -49,7 +50,7 @@ int trap_M01(vector<int> &height){
     }
     // calculating water volume
     int water = 0;
-    for(int i=0;i<n-1;i++){
+    for(int i=0;i<n;i++){
         if(height[i]<mini[i]){
             water += (mini[i]-height[i]);
         }
@@ -83,7 +84,7 @@ int trap_M02(vector<int> &height){
     }
     // calculating water volume
     int water = 0;
-    for(int i=0;i<n-1;i++){
+    for(int i=0;i<n;i++){
         if(height[i]<prev[i]){
             water += (prev[i]-height[i]);
         }
@@ -113,7 +114,7 @@ int trap_M03(vector<int> &height){
 
     // calculating water volume
     int water = 0;
-    for(int i=0;i<n-1;i++){
+    for(int i=0;i<n;i++){
         if(height[i]<prev[i]){
             water += (prev[i]-height[i]);
         }
@@ -125,13 +126,13 @@ int trap_M03(vector<int> &height){
 
 int main(){
     vector<int> v;
-    int s;
-    input(s,v);
+    
+    input(v);
 
-    trap_M01(v);
-    cout<<endl;
-    trap_M02(v);
-    cout<<endl;
-    trap_M03(v);
+    cout << trap_M01(v) << endl;
+    cout << trap_M02(v) << endl;
+    cout << trap_M03(v) << endl;
+
+    return 0;
 
 }
