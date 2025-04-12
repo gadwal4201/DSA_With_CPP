@@ -1,4 +1,6 @@
 #include<iostream>
+#include<climits>
+
 using namespace std;
 int main(){
     int m;
@@ -22,5 +24,13 @@ int main(){
     }
     cout<<"Maximum in 2D Array is : "<<max<<endl;
 
-    
+    int smax = arr[0][0];
+    // int smax = INT_MIN;
+    for(int i=0;i<m;i++){
+        for(int j=0; j<n; j++){
+            if(smax<arr[i][j] && arr[i][j]!=max) smax=arr[i][j];
+            
+        }
+    }
+    cout<<"Second Maximum in 2D Array is : "<<smax<<endl;
 }
