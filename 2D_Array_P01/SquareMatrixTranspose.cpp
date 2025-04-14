@@ -13,10 +13,8 @@ void display(vector<vector<int>> v){
     }
 }
 
-void input_matrix(vector<vector<int>> &v){
-    int n;
-    cout<<"Enter square matrix size : ";
-    cin>>n;
+void input_matrix(vector<vector<int>> &v, int n){
+    
 
     // Resize vector to m x n
     v.resize(n, vector<int>(n));
@@ -26,11 +24,10 @@ void input_matrix(vector<vector<int>> &v){
             cin>>v[i][j];
         }
     }
-    return;
 }
 
 vector<vector<int>> transpose(vector<vector<int>> &v){
-    int m = v.size();
+    // int m = v.size();
     int n =v[0].size();
 
     for(int i=0;i<n;i++){
@@ -44,8 +41,11 @@ vector<vector<int>> transpose(vector<vector<int>> &v){
     return v;
 }
 int main(){
+    int n;
+    cout<<"Enter square matrix size : ";
+    cin>>n;
     vector<vector<int>> v;
-    input_matrix(v);
+    input_matrix(v,n);
     transpose(v);
     display(v);
     

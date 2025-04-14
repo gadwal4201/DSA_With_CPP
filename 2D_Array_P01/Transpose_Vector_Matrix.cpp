@@ -13,23 +13,15 @@ void display(vector<vector<int>> v){
     }
 }
 
-void input_matrix(vector<vector<int>> &v){
-    int m;
-    cout<<"Enter no. of rows : ";
-    cin>>m;
-    int n;
-    cout<<"Enter no. of columns : ";
-    cin>>n;
+void input_matrix(vector<vector<int>> &v,int m,int n){
+    v.resize(m,vector<int>(n));
 
-    // Resize vector to m x n
-    v.resize(m, vector<int>(n));
     cout<<"Enter matrix elements : "<<endl;
     for(int i=0;i<m;i++){
         for(int j=0; j<n; j++){
             cin>>v[i][j];
         }
     }
-    return;
 }
 
 vector<vector<int>> transpose(vector<vector<int>> &v){
@@ -37,9 +29,9 @@ vector<vector<int>> transpose(vector<vector<int>> &v){
     int n =v[0].size();
 
     vector<vector<int>> t(n,vector<int>(m));
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            t[j][i] = v[i][j];
+    for(int j=0; j<m; j++){
+        for(int i=0; i<n; i++){
+            t[i][j] = v[j][i];
         }
     }
     
@@ -47,14 +39,20 @@ vector<vector<int>> transpose(vector<vector<int>> &v){
     return t;
 }
 int main(){
+    int m;
+    cout<<"Enter no. of rows : ";
+    cin>>m;
+    int n;
+    cout<<"Enter no. of columns : ";
+    cin>>n;
     vector<vector<int>> v;
-    input_matrix(v);
+    input_matrix(v,m,n);
     cout<<"Original matrix"<<endl;
     display(v);
-    transpose(v);
-    // display(v);
 
-    display(transpose(v));
+    vector<vector<int>> transpose_matrix =  transpose(v);
+    display(transpose_matrix);
+    // display(transpose(v));
 
     
 }

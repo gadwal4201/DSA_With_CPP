@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-void display(vector<vector<int>> v){
+void display_matrix(vector<vector<int>> v){
     int m = v.size();
     int n =v[0].size();
     for(int i=0;i<m;i++){
@@ -13,10 +13,8 @@ void display(vector<vector<int>> v){
     }
 }
 
-void input_matrix(vector<vector<int>> &v){
-    int n;
-    cout<<"Enter square matrix size : ";
-    cin>>n;
+void input_matrix(vector<vector<int>> &v,int n){
+
 
     // Resize vector to m x n
     v.resize(n, vector<int>(n));
@@ -29,7 +27,7 @@ void input_matrix(vector<vector<int>> &v){
     return;
 }
 
-vector<vector<int>> transpose(vector<vector<int>> &v){
+vector<vector<int>> transpose_matrix(vector<vector<int>> &v){
     int m = v.size();
     int n =v[0].size();
 
@@ -44,8 +42,8 @@ vector<vector<int>> transpose(vector<vector<int>> &v){
     return v;
 }
 
-vector<vector<int>> reverse(vector<vector<int>> &v){
-    int m = v.size();
+vector<vector<int>> reverse_matrix(vector<vector<int>> &v){
+    // int m = v.size();
     int n =v[0].size();
 
     for(int k=0;k<n;k++){
@@ -63,15 +61,20 @@ vector<vector<int>> reverse(vector<vector<int>> &v){
 }
 
 int main(){
-    vector<vector<int>> v;
-    input_matrix(v);
-    cout<<"Original Matrix"<<endl;
-    display(v);
+    int n;
+    cout<<"Enter square matrix size : ";
+    cin>>n;
     
-    transpose(v);
-    display(v);
+    vector<vector<int>> v;
+    input_matrix(v,n); 
 
-    reverse(v);
-    display(v);
+    cout<<"Original Matrix"<<endl;
+    display_matrix(v);
+    
+    transpose_matrix(v);
+    display_matrix(v);
+
+    reverse_matrix(v);
+    display_matrix(v);
     
 }

@@ -1,5 +1,7 @@
 #include<iostream>
 using namespace std;
+
+
 int main(){
     int m;
     cout<<"Enter no. of rows : ";
@@ -14,6 +16,7 @@ int main(){
         }
     }
     // Method 01
+    // transpose printing
     cout<<"transpose of matrix : "<<endl;
     for(int j=0;j<n;j++){
         for(int i=0; i<m; i++){
@@ -22,17 +25,17 @@ int main(){
         cout<<endl;
     }
     // Method 02
+    // store the transpose
     int trr[n][m];
     for(int i=0;i<n;i++){
         for(int j=0; j<m; j++){
-            trr[j][i] = arr[i][j];
+            trr[i][j] = arr[j][i];
 
         }
-        cout<<endl;
     }
     // print Method 02 transpose
-    for(int j=0;j<n;j++){
-        for(int i=0; i<m; i++){
+    for(int i=0;i<n;i++){
+        for(int j=0; j<m; j++){
             cout<<trr[i][j]<<" ";
         }
         cout<<endl;
